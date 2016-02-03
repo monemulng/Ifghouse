@@ -65,7 +65,6 @@ public class MainActivity extends Activity implements View.OnClickListener{
         btnPairComponents = (Button)findViewById(R.id.btnPairComponents);
         btnDebug = (Button)findViewById(R.id.btnDebug);
         btnExit = (Button)findViewById(R.id.btnExit);
-        btnPopulate = (Button)findViewById(R.id.btnPopulate);
         btnControl = (Button)findViewById(R.id.btnControl);
 
         // Grava funções do listener nos botões
@@ -75,10 +74,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
         btnPairComponents.setOnClickListener(this);
         btnDebug.setOnClickListener(this);
         btnExit.setOnClickListener(this);
-        btnPopulate.setOnClickListener(this);
         btnControl.setOnClickListener(this);
 
-        cmdBox = (EditText)findViewById(R.id.cmdBox);
         swtConfig = (Switch)findViewById(R.id.swtConfig);
 
         BluetoothApp app = (BluetoothApp)getApplication();

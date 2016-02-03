@@ -5,20 +5,19 @@
     android:layout_height="match_parent"
     android:padding="12dp"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/fundo_gradiente">
 
     <TextView
         android:id="@+id/labelDebug"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Digite um comando manual aqui:" />
-
-    <EditText
-        android:id="@+id/cmdBox"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/editbox_background"
-        android:textColor="#6b5252" />
+        android:text="Controle"
+        android:layout_gravity="center"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:textSize="@dimen/abc_text_size_large_material"
+        android:textAlignment="center" />
 
     <Button
         android:id="@+id/btnSendCommand"
@@ -26,7 +25,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Envia Comando manual"
-        android:textColor="#ff87a0"/>
+        android:textColor="#ffffff"
+        android:background="@drawable/rounded_button"
+        android:layout_marginBottom="5dp" />
 
     <Button
         android:id="@+id/btnConnect"
@@ -35,8 +36,9 @@
         android:layout_alignParentRight="true"
         android:layout_gravity="center_horizontal"
         android:text="Conectar com MASTER"
-        android:textColor="#4a87d0"
-        />
+        android:textColor="#ffffff"
+        android:background="@drawable/rounded_button"
+        android:layout_marginBottom="5dp" />
 
 
     <Switch
@@ -45,7 +47,7 @@
         android:text="Modo Configuração"
         android:id="@+id/swtConfig"
         android:layout_gravity="center_horizontal"
-        android:textColor="#616161"
+        android:textColor="#ffffff"
         android:textSize="@dimen/abc_dialog_padding_top_material"
         android:paddingTop="5dp"
         android:paddingBottom="5dp" />
@@ -55,40 +57,53 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Encontra Componentes" />
+        android:text="Encontra Componentes"
+        android:textColor="#ffffff"
+        android:background="@drawable/rounded_button"
+        android:layout_marginBottom="5dp" />
 
     <Button
         android:id="@+id/btnPairComponents"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Parear Componentes" />
+        android:text="Parear Componentes"
+        android:textColor="#ffffff"
+        android:background="@drawable/rounded_button"
+        android:layout_marginBottom="5dp" />
+
 
     <Button
         android:id="@+id/btnControl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Monitorar Devices" />
+        android:text="Monitorar Devices"
+        android:textColor="#ffffff"
+        android:background="@drawable/rounded_button"
+        android:layout_marginBottom="5dp" />
+
 
     <Button
         android:id="@+id/btnDebug"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Debug" />
+        android:text="Debug"
+        android:textColor="#ffffff"
+        android:background="@drawable/rounded_button"
+        android:layout_marginBottom="5dp" />
+
 
     <Button
         android:id="@+id/btnExit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Sair" />
+        android:text="Limpar atividades"
+        android:textColor="#ffffff"
+        android:background="@drawable/rounded_button"
+        android:layout_marginBottom="5dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/textView2" />
 
 </LinearLayout>

@@ -3,4 +3,11 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="white_button">#ffffff</color>
+    <color name="drk_button">#6c6e71</color>
+    <color name="lgt_button">#999494</color>
+
+    <color name="greyMed">#575b60</color>
+    <color name="greyLgt">#433f3f</color>
 </resources>
