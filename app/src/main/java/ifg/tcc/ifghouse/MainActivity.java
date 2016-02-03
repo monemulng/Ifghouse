@@ -65,7 +65,6 @@ public class MainActivity extends Activity implements View.OnClickListener{
         btnPairComponents = (Button)findViewById(R.id.btnPairComponents);
         btnDebug = (Button)findViewById(R.id.btnDebug);
         btnExit = (Button)findViewById(R.id.btnExit);
-        btnPopulate = (Button)findViewById(R.id.btnPopulate);
         btnControl = (Button)findViewById(R.id.btnControl);
 
         // Grava funções do listener nos botões
@@ -75,10 +74,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
         btnPairComponents.setOnClickListener(this);
         btnDebug.setOnClickListener(this);
         btnExit.setOnClickListener(this);
-        btnPopulate.setOnClickListener(this);
         btnControl.setOnClickListener(this);
 
-        cmdBox = (EditText)findViewById(R.id.cmdBox);
         swtConfig = (Switch)findViewById(R.id.swtConfig);
 
         BluetoothApp app = (BluetoothApp)getApplication();
@@ -214,7 +211,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 String dv2 = data.getStringExtra("dv2");
                 try {
                     BluetoothApp app = (BluetoothApp)getApplication();
-                    app.btHandler.sendData("100;g;1;" + dv1 + ";" + dv2 + ";");
+                    app.btHandler.pairDevices(dv1,dv2);
                     msgPop("mandei : 100;g;1;"+dv1+";"+dv2+";");
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -222,7 +219,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 }
             }
             if (resultCode == Activity.RESULT_CANCELED) {
-                //Write your code if there's no result
+                msgPop("Não houve sucesso em selecionar os dispositivos!");
             }
         }
     }//onActivityResult

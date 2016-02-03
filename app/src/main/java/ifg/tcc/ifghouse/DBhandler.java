@@ -193,9 +193,7 @@ public class DBhandler extends SQLiteOpenHelper {
             return true;
         else
             return false;
-
     }
-
 
     public boolean addDeviceScheme(DeviceScheme deviceScheme)
     {
@@ -359,6 +357,31 @@ public class DBhandler extends SQLiteOpenHelper {
             return false;
     }
 
+    public String getStatusDevice(int address)
+    {
+        // Pega um PluggedDevice baseado no endereço
+        String query = "SELECT * FROM " + TABLE_PLUGGED_DEVICE + " WHERE " + "address" + " = \"" + address + "\"";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(query, null);
+        db.close();
+        String estado = "";
+        if(cursor.moveToFirst())
+        {
+            cursor.moveToFirst();
+            estado = cursor.getString(5);
+
+        }
+        else
+        {
+            estado = null;
+        }
+        cursor.close();
+        return estado;
+    }
+
+
     public void clearDatabase()
     {
         // Apaga os dados internos das tabelas
@@ -413,6 +436,4 @@ public class DBhandler extends SQLiteOpenHelper {
         }
         return result;
     }
-
-
 }

@@ -13,6 +13,9 @@ import android.widget.TextView;
 /**
  * Created by Zeoraima on 29-10-2015.
  */
+
+// Este cria um modelo para o adapter receber os dispositivos para eles serem disponibilizados para
+// a lista de pareamento
 public class DeviceCursorAdapter extends CursorAdapter {
     private LayoutInflater mInflater;
 

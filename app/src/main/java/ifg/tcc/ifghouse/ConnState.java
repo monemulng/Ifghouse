@@ -4,7 +4,7 @@ package ifg.tcc.ifghouse;
  * Created by Zeoraima on 18-01-2016.
  */
 public class ConnState {
-    // Constants that indicate the current connection state
+    // Indicaçao de como esta a conexão
     public static final int STATE_NONE = 0;       	// we're doing nothing
     public static final int STATE_LISTEN = 1;     	// now listening for incoming connections
     public static final int STATE_CONNECTING = 2; 	// now initiating an outgoing connection
@@ -20,19 +20,19 @@ public class ConnState {
     // Mensagens de erro
     public static final int NOT_FOUND = 55;
 
-    // Message types sent from the BluetoothChatService Handler
+    // Tipos de mensagens enviadas como resposta
     public static final int MESSAGE_STATE_CHANGE = 1;
     public static final int MESSAGE_READ = 2;
     public static final int MESSAGE_WRITE = 3;
     public static final int MESSAGE_DEVICE_NAME = 4;
     public static final int MESSAGE_TOAST = 5;
 
-    // Intent request codes
+    // Códigos de requisição de intent
     public static final int REQUEST_CONNECT_DEVICE = 384;
     public static final int REQUEST_ENABLE_BT = 385;
 
 
-    // Key names received from the BluetoothChatService Handler
+    // Nomes recebidos do serviço
     public static final String DEVICE_NAME = "device_name";
     public static final String DEVICE_ADDRESS = "device_address";
     public static final String TOAST = "toast";
@@ -40,7 +40,7 @@ public class ConnState {
     public static final boolean DEVICE_ANDROID = true;
     public static final boolean DEVICE_OTHER = false;
 
-    // Return Intent extra
+    // Retorno do extra do intent
     public static String EXTRA_DEVICE_ADDRESS = "device_address";
 
 }

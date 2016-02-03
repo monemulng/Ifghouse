@@ -13,13 +13,17 @@ public class BluetoothApp extends Application{
         return singleton;
     }
 
+    /*
+    Instancia o BThandler no app, mantendo assim uma instancia em background permanente
+    enquanto o app estiver funcionando
+    */
     @Override
     public void onCreate() {
         super.onCreate();
         singleton = this;
         btHandler = new BThandler(getApplicationContext());
     }
-
+    // Digitos verificadores
     int statusCheck = 0;
     int connection_state = 0;
 

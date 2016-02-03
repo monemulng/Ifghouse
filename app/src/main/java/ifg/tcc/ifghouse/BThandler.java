@@ -214,6 +214,13 @@ public class BThandler {
         // //msgPop("Mensagem enviada.");
     }
 
+    public void pairDevices(String dv1, String dv2) throws IOException
+    {
+        // Método que envia comandos para o Master
+        String command = "100;g;1;" + dv1 + ";" + dv2 + ";";
+        sendData(command);
+    }
+
     // Fechar conexão, sockets e para o Thread, não tem volta, por enquanto..
     void closeBT() throws IOException
     {
