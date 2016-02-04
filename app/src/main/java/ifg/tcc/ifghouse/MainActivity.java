@@ -92,7 +92,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         // Cria instância da classe DBHandler, que cuida do banco de dados
         dbHandler = new DBhandler(this);
 
-        if (dbHandler.populateDatabase()) msgPop("Pop+");
+        dbHandler.populateDatabase();
 
         boolean master_on;
 
@@ -177,6 +177,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
                     app.statusCheck = 1;
                     app.btHandler.sendData(ConnState.RECEBE_STATUS);
                     msgPop("Recebendo status...");
+                    Intent C = new Intent(MainActivity.this, ShowDevices.class);
+                    startActivity(C);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

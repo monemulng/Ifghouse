@@ -32,8 +32,6 @@ public class ShowDevices extends AppCompatActivity {
         txtSense2 = (TextView) findViewById(R.id.txtSense2);
         swtLampada = (Switch) findViewById(R.id.swtLampada);
 
-        BluetoothApp app = (BluetoothApp)getApplication();
-
         // Cria instância da classe DBHandler, que cuida do banco de dados
         dbHandler = new DBhandler(this);
 
@@ -41,17 +39,20 @@ public class ShowDevices extends AppCompatActivity {
 
         while (dispositivos.moveToNext()) {
             int tipo = dispositivos.getInt(2);    // TIPO
-            int end = dispositivos.getInt(2);    // ENDEREÇO
+            int end = dispositivos.getInt(3);    // ENDEREÇO
             String[] texto = null;
             switch (tipo) {
-                case 2:
-                    if (dbHandler.getStatusDevice(end)=="1")swtLampada.setChecked(true);
-                    else swtLampada.setChecked(false);
+                case 2: // LAMPADA
+                    if (dbHandler.getStatusDevice(end)=="1") {
+                        swtLampada.setChecked(true);
+                    } else {
+                        swtLampada.setChecked(false);
+                    }
                     swtLampada.setText("Lâmpada LED");
                     lampAdress = "100;c;"+end+";";
                     swtLampada.setVisibility(View.VISIBLE);
                     break;
-                case 7:
+                case 7: // SENSOR HIGROMETRO
                     texto = dbHandler.getStatusDevice(end).split("%");
                     txtSense1.setText("Umidade: "+texto[0].toString()+" %");
                     txtSense2.setText("Temperatura: "+texto[1].toString()+" ºC");
@@ -83,7 +84,7 @@ public class ShowDevices extends AppCompatActivity {
                     }
                 }
             }
-        });
+        }); // */
     }
 
     // Economizando no Toast
@@ -93,8 +94,8 @@ public class ShowDevices extends AppCompatActivity {
     }
 
     // Botão voltar para Main
-    private void ShowGoMain(){
-        Intent i = new Intent(ShowDevices.this, MainActivity.class);
-        startActivity(i);
+    public void ShowGoMain(View v){
+        Intent T = new Intent(ShowDevices.this, MainActivity.class);
+        startActivity(T);
     }
 }

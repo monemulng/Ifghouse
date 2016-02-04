@@ -363,20 +363,15 @@ public class DBhandler extends SQLiteOpenHelper {
         String query = "SELECT * FROM " + TABLE_PLUGGED_DEVICE + " WHERE " + "address" + " = \"" + address + "\"";
 
         SQLiteDatabase db = this.getReadableDatabase();
-
         Cursor cursor = db.rawQuery(query, null);
-        db.close();
+
         String estado = "";
         if(cursor.moveToFirst())
         {
-            cursor.moveToFirst();
             estado = cursor.getString(5);
+        }
 
-        }
-        else
-        {
-            estado = null;
-        }
+        db.close();
         cursor.close();
         return estado;
     }
