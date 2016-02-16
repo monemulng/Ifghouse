@@ -43,9 +43,6 @@ public class DeviceList extends Activity {
         {
             //  Não possui Bluetooth
             msg("Seu periférico não possui Bluetooth");
-            // Não faz sentido continuar, fecha app
-            msg("Não faz sentido continuar....");
-            finish();
         }
         else if(!myBluetooth.isEnabled())
         {
@@ -78,10 +75,10 @@ public class DeviceList extends Activity {
             }
         }
         else {
-            msg("Não encontramos nenhum dispositio bluetooth na área...");
+            msg("Não encontramos nenhum dispositivo bluetooth na área...");
         }
 
-        final ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, list);
+        final ArrayAdapter adapter = new ArrayAdapter(this,R.layout.simplelist, list);
         listDevices.setAdapter(adapter);
         listDevices.setOnItemClickListener(myListClickListener); //Method called when the device from the list is clicked
 

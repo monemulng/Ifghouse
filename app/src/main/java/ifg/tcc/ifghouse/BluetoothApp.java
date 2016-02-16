@@ -12,7 +12,6 @@ public class BluetoothApp extends Application{
     public BluetoothApp getInstance(){
         return singleton;
     }
-
     /*
     Instancia o BThandler no app, mantendo assim uma instancia em background permanente
     enquanto o app estiver funcionando
@@ -26,5 +25,4 @@ public class BluetoothApp extends Application{
     // Digitos verificadores
     int statusCheck = 0;
     int connection_state = 0;
-
 }

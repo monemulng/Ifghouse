@@ -38,12 +38,13 @@ public class ShowDevices extends AppCompatActivity {
         Cursor dispositivos = dbHandler.getAllPluggedDevices();
 
         while (dispositivos.moveToNext()) {
-            int tipo = dispositivos.getInt(2);    // TIPO
-            int end = dispositivos.getInt(3);    // ENDEREÇO
+            int tipo = dispositivos.getInt(1);    // ENDEREÇO
+            int end = dispositivos.getInt(2);    // ENDEREÇO
+            //msgPop("Wht? : "+String.valueOf(tipo)+", "+String.valueOf(end)+", "+String.valueOf(enda)+", "+String.valueOf(ende)+", "+String.valueOf(endi)+", "+" ...");
             String[] texto = null;
             switch (tipo) {
                 case 2: // LAMPADA
-                    if (dbHandler.getStatusDevice(end)=="1") {
+                    if (dispositivos.getString(5)=="1") {
                         swtLampada.setChecked(true);
                     } else {
                         swtLampada.setChecked(false);
@@ -53,8 +54,8 @@ public class ShowDevices extends AppCompatActivity {
                     swtLampada.setVisibility(View.VISIBLE);
                     break;
                 case 7: // SENSOR HIGROMETRO
-                    texto = dbHandler.getStatusDevice(end).split("%");
-                    txtSense1.setText("Umidade: "+texto[0].toString()+" %");
+                    texto = dispositivos.getString(5).split("%");
+                    txtSense1.setText("Humidade: "+texto[0].toString()+" %");
                     txtSense2.setText("Temperatura: "+texto[1].toString()+" ºC");
                     txtSense1.setVisibility(View.VISIBLE);
                     txtSense2.setVisibility(View.VISIBLE);

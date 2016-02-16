@@ -161,6 +161,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
             case R.id.btnFindDevices:
                 // Recebe os componentes no banco de dados
                 try {
+//                    dbHandler.clearOld();
                     BluetoothApp app = (BluetoothApp)getApplication();
                     app.statusCheck = 0;
                     app.btHandler.sendData(ConnState.RECEBE_COMPONENTES);

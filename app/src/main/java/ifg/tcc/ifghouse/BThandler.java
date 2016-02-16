@@ -72,19 +72,16 @@ public class BThandler {
     }
 
 
-    // Abre conexão com o MASTER, liga In e Output, e liga Thread de Espera de sinais
-    // FUNÇÃO MAIS IMPORTANTE AQUI
+    // Abre conexão com o MASTER, liga Input e Output, e inicia o Thread de Espera de sinais
     void openBT() throws IOException
     {
-        UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"); //Standard SerialPortService ID
+        UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
         mmSocket = mmDevice.createInsecureRfcommSocketToServiceRecord(uuid);
         mmSocket.connect();
         mmOutputStream = mmSocket.getOutputStream();
         mmInputStream = mmSocket.getInputStream();
 
         beginListenForData();
-
-        //msgPop("COMUNICAÇÃO ABERTA !!!");
     }
 
     // HANDLER - Recebe e codifica os sinais, preparar para descartá-los
@@ -141,6 +138,8 @@ public class BThandler {
                                             BluetoothApp app = (BluetoothApp)mContext;
 
                                             if (app.statusCheck == 0) {
+                                                dbHandler.addLogData(dbHandler.getStatusDevice(3));
+
                                                 // Retira o lixo da mensagem
                                                 String[] msgs = data.split("!");
                                                 String[] device = msgs[0].split(";");
@@ -211,12 +210,11 @@ public class BThandler {
         } catch (NullPointerException e) {
             msgErro("Erro no envio de mensagem: "+e);
         }
-        // //msgPop("Mensagem enviada.");
     }
 
     public void pairDevices(String dv1, String dv2) throws IOException
     {
-        // Método que envia comandos para o Master
+        // Método que pareia dois dispositivos
         String command = "100;g;1;" + dv1 + ";" + dv2 + ";";
         sendData(command);
     }

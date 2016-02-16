@@ -388,6 +388,14 @@ public class DBhandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void clearOld()
+    {
+        // Apaga os dados internos das tabelas
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_PLUGGED_DEVICE);
+        db.close();
+    }
+
     public boolean populateDatabase()
     {
         /* Cadastro de DEVICES  --- ultimos dois campos são: é digital? é acionador? */
